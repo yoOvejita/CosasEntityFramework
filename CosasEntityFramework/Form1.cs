@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CosasEntityFramework.Modelos;
 
 namespace CosasEntityFramework
 {
@@ -26,5 +27,14 @@ namespace CosasEntityFramework
              */
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            var telefonos = ddbb.Telefonos.ToList();
+            string texto = "";
+            foreach (var telf in telefonos)
+                texto += $"{telf.codigoEst}: {telf.numero} - {telf.estudiante.nombre} {telf.estudiante.apellido}\n";
+            richTextBox1.Text = texto;
+        }
     }
 }
