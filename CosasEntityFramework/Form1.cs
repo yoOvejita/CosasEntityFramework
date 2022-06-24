@@ -156,5 +156,45 @@ namespace CosasEntityFramework
             foreach (var est in estudiantes)
                 texto += $"{est.nombre}: {est.apellido} -\n";
             richTextBox1.Text = texto;
-        }//¿Cómo lo haríamos para, habiendo rescatado a los más jóvenes, mostrar a los que tengan ci > 1000?
+            /* ¿Cómo lo haríamos para, habiendo rescatado a los 2 más jóvenes, mostrar a los que tengan ci > 1000?
+             * 
+            var ddbb = new GestionEmpresaXDB();
+            var estudiantes = ddbb.Estudiantes
+                .OrderByDescending(est => est.fecha_nac).Skip(0).Take(2).Where(est => est.ci > 1000).ToList();//Valor al inicio
+            string texto = "";
+            foreach (var est in estudiantes)
+                texto += $"{est.nombre}: {est.apellido} -\n";
+            richTextBox1.Text = texto;*/
+        }
+
+        private void botonBusquedaPK(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            int carnet = int.Parse(richTextBox1.Text);
+            Estudiante est = ddbb.Estudiantes.SingleOrDefault(e => e.ci == carnet);
+            string texto = "";
+            if (est != null)
+            {
+                texto = $"Estudiante: {est.nombre} {est.apellido}\nCI: {est.ci}\n" +
+                    $"Dirección: {est.direccion}";
+            }
+            richTextBox1.Text = texto;
+        }
+
+        private void botonProyeccion(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            var estudiantesMutados = ddbb.Estudiantes.Select( e => new
+                {
+                    carnet = e.ci,
+                    nombre = e.nombre,
+                    apellido = e.apellido,
+                    numero = e.ci * 2
+                }).ToList();
+            string texto = "";
+            foreach (var est in estudiantesMutados)
+                texto += $"CI: {est.carnet}, {est.nombre}: {est.apellido}; numero: {est.numero}-\n";
+            richTextBox1.Text = texto;
+        }
+    }
 }

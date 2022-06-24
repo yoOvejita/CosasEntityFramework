@@ -17,10 +17,11 @@ namespace CosasEntityFramework.Modelos
         public string email { get; set; }
         public string direccion { get; set; }
         public virtual ICollection<Telefono> telefonos { get; set; }
-
+        public virtual ICollection<MateriaCursada> materiasCursadas { get; set; }
         public Estudiante()
         {
             telefonos = new HashSet<Telefono>();
+            materiasCursadas = new HashSet<MateriaCursada>();
         }
     }
 }
