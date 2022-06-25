@@ -43,6 +43,12 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -165,13 +171,13 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(115, 181);
+            this.button12.Location = new System.Drawing.Point(220, 181);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(75, 23);
             this.button12.TabIndex = 0;
-            this.button12.Text = "LIMIT";
+            this.button12.Text = "SUM";
             this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.botonWhereLimit);
+            this.button12.Click += new System.EventHandler(this.botonFA_SUM);
             // 
             // button13
             // 
@@ -193,14 +199,80 @@
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.botonProyeccion);
             // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(115, 306);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(75, 23);
+            this.button15.TabIndex = 0;
+            this.button15.Text = "Mat_cursada";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.botonPrueba);
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(220, 210);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(75, 23);
+            this.button16.TabIndex = 0;
+            this.button16.Text = "COUNT";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.botonFA_COUNT);
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(220, 239);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(75, 23);
+            this.button17.TabIndex = 0;
+            this.button17.Text = "MIN";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.botonFA_MIN);
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(220, 268);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(75, 23);
+            this.button18.TabIndex = 0;
+            this.button18.Text = "MAX";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.botonFA_MAX);
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(301, 181);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(75, 23);
+            this.button19.TabIndex = 0;
+            this.button19.Text = "AVG";
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.botonFA_AVG);
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(301, 210);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(75, 23);
+            this.button20.TabIndex = 0;
+            this.button20.Text = "Fechas";
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.boton_fechas);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.button15);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
+            this.Controls.Add(this.button19);
+            this.Controls.Add(this.button18);
+            this.Controls.Add(this.button17);
+            this.Controls.Add(this.button20);
+            this.Controls.Add(this.button16);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
@@ -236,5 +308,11 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button button20;
     }
 }

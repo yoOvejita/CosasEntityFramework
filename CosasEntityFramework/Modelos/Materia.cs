@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CosasEntityFramework.Modelos
 {
-    [Table("Materia")]
+    [Table("Materia", Schema = "desarrollo")]
     public class Materia
     {
         [Key]

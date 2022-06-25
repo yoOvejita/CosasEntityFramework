@@ -196,5 +196,64 @@ namespace CosasEntityFramework
                 texto += $"CI: {est.carnet}, {est.nombre}: {est.apellido}; numero: {est.numero}-\n";
             richTextBox1.Text = texto;
         }
+
+        private void botonPrueba(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            var mat_curs = ddbb.MateriasCursadas.ToList();
+            string texto = "";
+            foreach (var mc in mat_curs)
+                texto += $"{mc.estudiante.apellido}: {mc.calificacion} -\n";
+            richTextBox1.Text = texto;
+        }
+
+        private void botonFA_SUM(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            //var sum = ddbb.MateriasCursadas.Sum(mc => mc.calificacion);
+            var sum = ddbb.MateriasCursadas.Where(mc => mc.estudiante.apellido.Equals("Perales")).Sum(mc => mc.calificacion);
+            richTextBox1.Text = sum+"";
+        }
+
+        private void botonFA_COUNT(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            //var sum = ddbb.MateriasCursadas.Count();
+            var sum = ddbb.MateriasCursadas.Count(mc => mc.calificacion > 50);
+            richTextBox1.Text = sum + "";
+        }
+
+        private void botonFA_MIN(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            var min = ddbb.MateriasCursadas.Min(mc => mc.calificacion);
+            richTextBox1.Text = min + "";
+        }
+
+        private void botonFA_MAX(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            var max = ddbb.MateriasCursadas.Max(mc => mc.calificacion);
+            richTextBox1.Text = max + "";
+        }
+
+        private void botonFA_AVG(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            var media = ddbb.MateriasCursadas.Average(mc => mc.calificacion);
+            richTextBox1.Text = media + "";
+        }
+
+        private void boton_fechas(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            var estudiantes = ddbb.Estudiantes
+                .Where(es => es.fecha_nac.Year == 2000 
+                && es.fecha_nac.Month == 12).ToList();
+            string texto = "";
+            foreach (var es in estudiantes)
+                texto += $"{es.apellido}: {es.fecha_nac.ToString("dd/MM/yyyy")} -\n";
+            richTextBox1.Text = texto;
+        }
     }
 }
