@@ -255,5 +255,112 @@ namespace CosasEntityFramework
                 texto += $"{es.apellido}: {es.fecha_nac.ToString("dd/MM/yyyy")} -\n";
             richTextBox1.Text = texto;
         }
+
+        private void boton_JOIN(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            var listaNueva = ddbb.Estudiantes.Join(
+                ddbb.Telefonos,
+                est => est.ci, tel => tel.codigoEst,
+                (est, tel) => new
+                {
+                    ci = est.ci,
+                    nom = est.nombre,
+                    ap = est.apellido,
+                    num = tel.numero
+                }).ToList();
+            string texto = "";
+            foreach (var est in listaNueva)
+                texto += $"CI: {est.ci}, {est.nom}: {est.ap}; numero: {est.num}-\n";
+            richTextBox1.Text = texto;
+        }
+
+        private void boton_JOIN_WHERE(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            var listaNueva = ddbb.Estudiantes.Join(
+                ddbb.Telefonos,
+                est => est.ci, tel => tel.codigoEst,
+                (est, tel) => new
+                {
+                    ci = est.ci,
+                    nom = est.nombre,
+                    ap = est.apellido,
+                    num = tel.numero
+                })
+                .Where(estTotal => estTotal.ci > 300)
+                .ToList();
+            string texto = "";
+            foreach (var est in listaNueva)
+                texto += $"CI: {est.ci}, {est.nom}: {est.ap}; numero: {est.num}\n";
+            richTextBox1.Text = texto;
+        }
+
+        private void boton_GROUP(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            var listaGrupo = ddbb.MateriasCursadas.GroupBy(mc => mc.idMat)
+                .Select( g => new
+                {
+                    g.Key,
+                    conteo = g.Count(),
+                    media = g.Average(mc => mc.calificacion)
+                })
+                .ToList();
+            string texto = "";
+            foreach (var est in listaGrupo)
+                texto += $" {est.media}: {est.Key}, {est.conteo}\n";
+            richTextBox1.Text = texto;
+        }
+
+        private void boton_GROUP_HAVING(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            var listaGrupo = ddbb.MateriasCursadas.GroupBy(mc => mc.idMat)
+                .Select(g => new
+                {
+                    g.Key,
+                    conteo = g.Count(),
+                    media = g.Average(mc => mc.calificacion)
+                })
+                .Where(g => g.conteo > 1) //Having
+                .ToList();
+            string texto = "";
+            foreach (var est in listaGrupo)
+                texto += $" {est.media}: {est.Key}, {est.conteo}\n";
+            richTextBox1.Text = texto;
+        }
+
+        private void boton_INSERT(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            var materiacursada = new MateriaCursada()
+            {
+                idEst = 321, // mi va id_m_c pues es IDENTITY(1,1) en la tabla
+                idMat = "MAT123",
+                calificacion = 100
+            };
+            ddbb.MateriasCursadas.Add(materiacursada);
+            ddbb.SaveChanges();
+            richTextBox1.Text = "Creado";
+        }
+
+        private void boton_UPDATE(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            var mat_cursada = ddbb.MateriasCursadas.SingleOrDefault(mc => mc.id_m_c == 6);
+            mat_cursada.calificacion = 95;
+            ddbb.SaveChanges();
+            richTextBox1.Text = "Modificado";
+        }
+
+        private void boton_DELETE(object sender, EventArgs e)
+        {
+            var ddbb = new GestionEmpresaXDB();
+            var mat_cursada = ddbb.MateriasCursadas.SingleOrDefault(mc => mc.id_m_c == 6);
+            ddbb.MateriasCursadas.Remove(mat_cursada);
+            ddbb.SaveChanges();
+            richTextBox1.Text = "Eliminado";
+        }
     }
 }

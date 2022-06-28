@@ -49,6 +49,13 @@
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
+            this.button23 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -259,6 +266,76 @@
             this.button20.UseVisualStyleBackColor = true;
             this.button20.Click += new System.EventHandler(this.boton_fechas);
             // 
+            // button21
+            // 
+            this.button21.Location = new System.Drawing.Point(389, 264);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(75, 23);
+            this.button21.TabIndex = 0;
+            this.button21.Text = "JOIN";
+            this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.boton_JOIN);
+            // 
+            // button22
+            // 
+            this.button22.Location = new System.Drawing.Point(389, 293);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(75, 23);
+            this.button22.TabIndex = 0;
+            this.button22.Text = "JOIN 2";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.boton_JOIN_WHERE);
+            // 
+            // button23
+            // 
+            this.button23.Location = new System.Drawing.Point(470, 264);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(75, 23);
+            this.button23.TabIndex = 0;
+            this.button23.Text = "GROUP BY";
+            this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.boton_GROUP);
+            // 
+            // button24
+            // 
+            this.button24.Location = new System.Drawing.Point(470, 293);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(75, 23);
+            this.button24.TabIndex = 0;
+            this.button24.Text = "HAVING";
+            this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.boton_GROUP_HAVING);
+            // 
+            // button25
+            // 
+            this.button25.Location = new System.Drawing.Point(470, 152);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(75, 23);
+            this.button25.TabIndex = 0;
+            this.button25.Text = "INSERT";
+            this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.boton_INSERT);
+            // 
+            // button26
+            // 
+            this.button26.Location = new System.Drawing.Point(470, 181);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(75, 23);
+            this.button26.TabIndex = 0;
+            this.button26.Text = "UPDATE";
+            this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.boton_UPDATE);
+            // 
+            // button27
+            // 
+            this.button27.Location = new System.Drawing.Point(470, 210);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(75, 23);
+            this.button27.TabIndex = 0;
+            this.button27.Text = "DELETE";
+            this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.boton_DELETE);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -269,9 +346,16 @@
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button19);
+            this.Controls.Add(this.button24);
+            this.Controls.Add(this.button22);
+            this.Controls.Add(this.button23);
+            this.Controls.Add(this.button21);
+            this.Controls.Add(this.button27);
             this.Controls.Add(this.button18);
+            this.Controls.Add(this.button26);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.button20);
+            this.Controls.Add(this.button25);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
@@ -314,5 +398,12 @@
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button button25;
+        private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.Button button27;
     }
 }
